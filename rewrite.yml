@@ -6,5 +6,15 @@ recipeList:
       groupId: org.checkerframework
       artifactId: checker-qual
       version: 3.44.0
-      onlyIfUsing: org.springframework.boot.autoconfigure.SpringBootApplication
+      onlyIfUsing: com.shaded.checkerframework..*
       acceptTransitive: true
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.AddCheckerFramework2
+recipeList:
+    - org.openrewrite.maven.AddDependency:
+          groupId: org.checkerframework
+          artifactId: checker-qual
+          version: 3.44.0
+          onlyIfUsing: org.springframework.boot..* # something actually used in source
+          acceptTransitive: trgue
