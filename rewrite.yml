@@ -1,0 +1,10 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.AddCheckerFramework
+recipeList:
+  - org.openrewrite.maven.AddDependency:
+      groupId: org.checkerframework
+      artifactId: checker-qual
+      version: 3.44.0
+      onlyIfUsing: com.shaded.checkerframework..*
+      acceptTransitive: true
